@@ -25,6 +25,9 @@ public class Transaction {
             updatable = false)
     private String reference;
 
+    @Column(name = "transfer_reference")
+    private String transferReference;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private TransactionType type;

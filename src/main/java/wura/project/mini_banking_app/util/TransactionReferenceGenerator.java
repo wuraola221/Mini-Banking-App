@@ -15,4 +15,14 @@ public class TransactionReferenceGenerator {
                         .substring(0, 12)
                         .toUpperCase();
     }
+
+    public String generateTransferReference() {
+
+        return "TRF-" +
+                UUID.randomUUID()
+                        .toString()
+                        .replace("-", "")
+                        .substring(0, 12)
+                        .toUpperCase();
+    }
 }

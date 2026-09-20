@@ -3,5 +3,6 @@ package wura.project.mini_banking_app.entity;
 public enum TransactionType {
     DEPOSIT,
     WITHDRAWAL,
-    TRANSFER
+    TRANSFER_OUT,
+    TRANSFER_IN
 }

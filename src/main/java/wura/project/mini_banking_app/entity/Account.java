@@ -3,6 +3,7 @@ package wura.project.mini_banking_app.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -34,6 +35,9 @@ public class Account {
             scale = 2
     )
     private BigDecimal balance = BigDecimal.ZERO;
+
+    @Version
+    private Long version;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(

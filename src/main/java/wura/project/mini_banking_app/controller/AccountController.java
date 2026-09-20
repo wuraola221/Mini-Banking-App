@@ -4,9 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import wura.project.mini_banking_app.dto.DepositRequestDto;
-import wura.project.mini_banking_app.dto.DepositResponseDto;
-import wura.project.mini_banking_app.dto.TransactionResponseDto;
+import wura.project.mini_banking_app.dto.*;
 import wura.project.mini_banking_app.service.AccountService;
 
 import java.util.List;
@@ -35,5 +33,22 @@ public class AccountController {
         List<TransactionResponseDto> transactions = accountService.getTransactionHistory(email);
 
         return ResponseEntity.ok(transactions);
+    }
+
+    @PostMapping("/withdrawal")
+    public ResponseEntity<WithdrawalResponseDto> withdraw (@RequestBody WithdrawalRequestDto request, Authentication authentication) {
+        String email = authentication.getName();
+        WithdrawalResponseDto response = accountService.withdraw(email, request.getAmount());
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/transfer")
+    public ResponseEntity<TransferResponseDto> transfer(@RequestBody TransferRequestDto request, Authentication authentication) {
+
+        String senderEmail = authentication.getName();
+
+        TransferResponseDto response = accountService.transfer(senderEmail, request);
+
+        return ResponseEntity.ok(response);
     }
 }
