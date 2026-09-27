@@ -135,8 +135,8 @@ public class AccountServiceImpl implements AccountService{
     public WithdrawalResponseDto withdraw(String email, BigDecimal amount) {
 
 
-        if (amount == null) {
-            throw new IllegalArgumentException("Withdral amount must be greater than zero");
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new AmountMustBeGreaterThanZeroException("Withdrawal amount must be greater than zero");
         }
 
 
@@ -150,10 +150,6 @@ public class AccountServiceImpl implements AccountService{
         }
 
         BigDecimal previousBalance = account.getBalance();
-
-        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new AmountMustBeGreaterThanZeroException("Amount must be greater than zero");
-        }
 
 
         if (previousBalance.compareTo(amount) < 0){
