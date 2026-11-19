@@ -79,7 +79,7 @@ Transfers create separate `TRANSFER_OUT` and `TRANSFER_IN` records while updatin
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/wuraola221/Mini-Banking-App
 cd Mini-Banking-App
 ```
 
