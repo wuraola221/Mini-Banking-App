@@ -95,15 +95,6 @@ The application runs by default on:
 http://localhost:8080
 ```
 
-## Planned Improvements
-
-- Swagger/OpenAPI documentation
-- Unit and integration testing
-- Docker containerization
-- CI/CD
-- Redis
-- Microservices
-- Cloud deployment
 
 ## Author
 
